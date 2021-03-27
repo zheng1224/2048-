@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>左右轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            margin: 100px auto;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #000;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn {
+            position: absolute;
+            right: 5px;
+            bottom: 10px;
+            height: 10px;
+            list-style: none;
+            text-align: center;
+        }
+        .btn>li {
+            font-size: 10px;
+            float: left;
+            padding: 2px;
+            margin-right: 5px;
+            width: 10px;
+            height: 100%;
+            line-height: 10px;
+            border: 1px solid #ccc;
+            color: red;
+            cursor: pointer;
+        }
+        .pic {
+            width: 600%;
+        }
+        .pic li{
+            list-style: none;
+            width: 300px;
+            height: 200px;
+            float: left;
+        }
+        .pic img {
+            width: 300px;
+            height: 200px;
+        }
+        .current {
+            background: orange;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            var aBtns = $(".btn li");
+            var timer;
+            var index = 0;
+            $(".btn li").click(function(){
+                index = $(this).index();
+                tab();
+            })
+
+            $(".box").mouseenter(function () { 
+                clearInterval(timer);
+             }).mouseleave(function(){
+                timer = setInterval(function(){
+                    index ++;
+                    tab();
+                }, 2000)
+             })
+            
+
+            function tab() { 
+                aBtns.attr("class", "").eq(index).attr("class", "current");
+                if(index == aBtns.size()){
+                    aBtns.eq(0).attr("class", "current");
+                }
+                $(".pic").animate({
+                    marginLeft: index* -300
+                }, 500,function(){
+                    if(index == aBtns.size()){
+                        index = 0;
+                        $(".pic").css("marginLeft", 0);
+                    }
+                })
+                // document.title = index;
+
+            }
+
+        })
+    </script>
+</head>
+<body>
+    <div class="box">
+        <ol class="btn">
+            <li class="current">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>
+        <ul class="pic">
+            <li><img src="image/1.jpg" alt=""></li>
+            <li><img src="image/2.jpg" alt=""></li>
+            <li><img src="image/3.jpg" alt=""></li>
+            <li><img src="image/4.jpg" alt=""></li>
+            <li><img src="image/5.jpg" alt=""></li>
+            <li><img src="image/1.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>

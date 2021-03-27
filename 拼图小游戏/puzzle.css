@@ -1,0 +1,101 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body {
+    width: 100%;
+    height: 100%;
+}
+#container {
+    position: relative;
+    margin: 100px auto;
+    width: 620px;
+    height: 450px;
+}
+#game {
+    position: absolute;
+    display: inline-block;
+    width: 450px;
+    height: 450px;
+    background-color: #ffe171;
+    box-shadow: 0 0 10px #ffe171;
+}
+#game div {
+    position: absolute;
+    line-height: 150px;
+    /* 阴影占1px  */
+    box-shadow: 1px 1px 2px #777;
+    text-align: center;
+    font-size: 150px;
+    color: white;
+    width: 149px;
+    height: 149px;
+    background-color: darkcyan;
+    cursor: pointer;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+#d1 {
+    left: 0px;
+    top: 0px;
+}
+#d2 {
+    left: 150px;
+}
+#d3 {
+    left: 300px;
+}
+#d4 {
+    left: 0px;
+    top: 150px;
+}
+#d5{
+    left: 150px;
+    top: 150px;
+}
+#d6 {
+    left: 300px;
+    top: 150px;
+}
+#d7 {
+    left: 0px;
+    top: 300px;
+}
+#d8 {
+    left: 150px;
+    top: 300px;
+}
+#game div:hover {
+    color: #ffe171;
+}
+#control {
+    display: inline-block;
+    width: 170px;
+    float: right;
+}
+
+#control rowspan {
+    height: 25px;
+    font-size: 20px;
+    color: #222;
+    margin-left: 15px;
+}
+#start,#reset {
+    margin-top: 20px;
+    width: 100px;
+    display: block;
+    background-color: skyblue;
+    text-align: center;
+    color: #ffe171;
+    text-shadow: 1px 1px 2px #ffe171;
+    font-size: 20px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px #4c98f5;
+    cursor: pointer;
+}
+
+
